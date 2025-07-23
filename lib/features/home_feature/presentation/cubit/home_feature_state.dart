@@ -1,10 +1,17 @@
 part of 'home_feature_cubit.dart';
 
-abstract class HomeFeatureState extends Equatable {
+abstract class HomeFeatureState {
   const HomeFeatureState();
-
-  @override
-  List<Object> get props => [];
 }
 
 class HomeFeatureInitial extends HomeFeatureState {}
+
+class HomeFeatureLoading extends HomeFeatureState {}
+
+class HomeFeatureLoaded extends HomeFeatureState {
+  final PostsEntity? post;
+
+  HomeFeatureLoaded({this.post});
+}
+
+class HomeFeatureError extends HomeFeatureState {}

@@ -1,12 +1,14 @@
+import '../../../../core/error/failures.dart';
 import '../entities/post.dart';
 import '../repositories/posts_repo.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class GetPostsUserCase {
-  final PostsRePository repository;
+  final BasePostsRePository repository;
 
   GetPostsUserCase(this.repository);
 
-  Future<List<Post>> execute() async {
+  Future<Either<Failure, PostsEntity>> execute() async {
     return await repository.getAllPosts();
   }
 }
